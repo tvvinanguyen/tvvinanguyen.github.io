@@ -21,8 +21,18 @@ var init = function (window) {
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM SETUP ////////////////////////////
         ////////////////////////////////////////////////////////////
-        
-        
+        var circle;
+        var circles = [];
+        function drawCircle() {
+            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas, 10, 10);
+            view.addChild(circle);
+            circles.push(circle);
+        };
+        for (var c = 0; c < 100; c++) {
+            drawCircle(c);
+        }
+
 
 
         ////////////////////////////////////////////////////////////
@@ -35,9 +45,11 @@ var init = function (window) {
         and check to see if it has drifted off the screen.         
         */
         function update() {
-            
-           
-            
+            for (var i = 0; i < circles.length; i++) {
+                var eachCircle = circles[i];
+                physikz.updatePosition(eachCircle);
+                game.checkCirclePosition(eachCircle);
+            }
         }
     
         /* 
@@ -50,9 +62,18 @@ var init = function (window) {
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
-            }
+            };
+            if (circle.y > canvas.height) {
+                circle.y = 0;
+            };
+            if (circle.x < 0) {
+                circle.x = 0;
+            };
+            if (circle.y < 0) {
+                circle.y = 0;
+            };
             
-        }
+        };
         
         /////////////////////////////////////////////////////////////
         // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
