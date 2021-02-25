@@ -1,0 +1,47 @@
+User Story / Gameplay
+
+Describe the gameplay.
+Pong is a two player game, in which each player controls a paddle on 
+opposite sides of the screen. For one to earn points, he or she must avoid
+having the ball move past the paddle by moving it up and down. If the player
+is successful, the ball will bounce off that player's side of the screen
+towards the opponent's. Player 1 will control the paddle using the W key to
+move it up and the S key to move it down. Player 2 will control the paddle
+using the up and down keys. When the ball passes a player's paddle, it
+flies of the screen and reappears in the middle, and the score of the
+opponent will increase by 1. The ball will begin to bounce again when the 
+scoring player moves one of their keys.
+
+What are the conditions when the game begins?
+The location of the paddles are at the very left and right of the screen.
+The ball is static at the center of the screen, and the scoreboard will
+display 0-0.
+
+Does the game have an end? If so, what are the conditions for when it ends?
+What ifs will there be?
+To win, one of the players must gain 11 points. If a player's score is 
+equal to 11, then the end screen will 
+
+Visual Game Components:
+What are the visual game components? For example, in Bouncing Box, the 
+game components were the board and the box.
+The paddles, the ball, the scoreboard, midline (for reference)
+    Which will be static? (the board)
+        Static Components: scoreboard, midline 
+    Which will be animated? (the box)
+        Animated Components: the paddles, the ball
+    What data will you need to manage each game component? For example, in 
+    Bouncing Box, the data values were positionX, speedX, and points.
+        paddle1Position, paddle2Position, ballSpeedX, ballSpeedY, 
+        player1Score, player2Score
+
+Events / Logic
+What events will occur in this game? (timer events, keyboard events, 
+clicking events?)
+    When W/S or UP/DOWN are pressed, the location of the paddle will change
+    When the position of the ball reaches the horizontal position of the 
+    paddle, the horizontal velocity of the ball will change direction
+    When the position of the ball passes the horizontal position of the 
+    paddle, the ball will be returned to the middle and the score of one
+    player on the opposite side of the board will be increased
+
